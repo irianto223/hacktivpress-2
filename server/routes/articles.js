@@ -1,8 +1,7 @@
-var express = require('express');
-var router = express.Router();
+var express = require('express')
+var router = express.Router()
+var articleController = require('../controllers/articles')
 
-router.get('/', (req, res) => {
-  res.send('respond with a resource');
-});
+router.post('/', articleController.createArticle)
 
-module.exports = router;
+module.exports = router

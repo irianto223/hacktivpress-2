@@ -16,6 +16,7 @@ var createArticle = (req, res) => {
       data: dataArticle
     })
   })
+  .catch(err => res.send(err))
 }
 
 module.exports = {

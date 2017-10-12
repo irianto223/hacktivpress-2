@@ -11,7 +11,7 @@ var schema = mongoose.Schema({
   },
   category: String,
   author: {
-    type: mongoose.Schema.Type.ObjectId,
+    type: mongoose.Schema.Types.ObjectId,
     ref: 'users'
   }
 }, {
