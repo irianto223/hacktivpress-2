@@ -87,11 +87,28 @@ var remove = (req, res) => {
   .catch(err => res.send(err))
 }
 
+var edit = (req, res) => {
+  Article.update({
+    _id: req.params.id
+  }, {
+    title: req.body.title,
+    content: req.body.content,
+    category: req.body.category
+  })
+  .then(() => {
+    res.send({
+      message: 'data updated'
+    })
+  })
+  .catch(err => res.send(err))
+}
+
 module.exports = {
   createArticle,
   getAll,
   getOne,
   getByAuthor,
   getByCategory,
-  remove
+  remove,
+  edit
 }
