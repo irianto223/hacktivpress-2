@@ -4,6 +4,9 @@ import HelloWorld from '@/components/HelloWorld'
 import Home from '@/components/Home'
 import ArticleList from '@/components/ArticleList'
 import ArticleDetail from '@/components/ArticleDetail'
+import ArticleUser from '@/components/ArticleUser'
+import Register from '@/components/Register'
+import Login from '@/components/Login'
 
 Vue.use(Router)
 
@@ -26,10 +29,25 @@ export default new Router({
           component: ArticleList
         },
         {
+          path: 'article/mine',
+          name: 'ArticleUser',
+          component: ArticleUser
+        },
+        {
           path: 'article/:id',
           name: 'ArticleDetail',
           component: ArticleDetail,
           props: true
+        },
+        {
+          path: 'register',
+          name: 'Register',
+          component: Register
+        },
+        {
+          path: 'login',
+          name: 'Login',
+          component: Login
         }
       ]
     }

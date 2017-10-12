@@ -1,7 +1,7 @@
 <template lang="html">
   <div>
     <Nav/>
-    <h3>welcome home!</h3>
+    <!-- <h3>welcome home!</h3> -->
     <router-view/>
   </div>
 </template>

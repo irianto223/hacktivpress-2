@@ -2,12 +2,12 @@
   <div>
     <ul>
       <router-link :to="'/'"><li>Home</li></router-link>
-      <li><a href="#!">My Articles</a></li>
+      <router-link :to="'/article/mine'"><li>My Articles</li></router-link>
     </ul>
     <ul>
-      <li><a href="#!">Register</a></li>
-      <li><a href="#!">Login</a></li>
-      <li><a href="#!">Logout</a></li>
+      <router-link :to="'/register'"><li>Register</li></router-link>
+      <router-link :to="'/login'"><li>Login</li></router-link>
+      <!-- <li><a href="#!">Logout</a></li> -->
     </ul>
   </div>
 </template>
