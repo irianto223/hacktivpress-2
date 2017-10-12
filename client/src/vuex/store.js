@@ -25,7 +25,7 @@ var actions = {
       url: `/articles`
     })
     .then(response => {
-      context.commit('setAllArticles', payload.data.data)
+      context.commit('setAllArticles', response.data.data)
     })
     .catch(err => console.log(err))
   }
