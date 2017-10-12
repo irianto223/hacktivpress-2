@@ -9,12 +9,16 @@ var http = axios.create({
 })
 
 var state = {
-  allArticles: []
+  allArticles: [],
+  detailArticle: {}
 }
 
 var mutations = {
   setAllArticles (state, payload) {
     state.allArticles = payload
+  },
+  setdetailArticle (state, payload) {
+    state.detailArticle = payload
   }
 }
 
@@ -26,6 +30,18 @@ var actions = {
     })
     .then(response => {
       context.commit('setAllArticles', response.data.data)
+    })
+    .catch(err => console.log(err))
+  },
+  getOneArticle (context, id) {
+    console.log(id)
+    http({
+      method: 'get',
+      url: `/articles/${id}`
+    })
+    .then(response => {
+      console.log(response.data)
+      context.commit('setdetailArticle', response.data.data)
     })
     .catch(err => console.log(err))
   }

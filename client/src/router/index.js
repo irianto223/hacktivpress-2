@@ -3,6 +3,7 @@ import Router from 'vue-router'
 import HelloWorld from '@/components/HelloWorld'
 import Home from '@/components/Home'
 import ArticleList from '@/components/ArticleList'
+import ArticleDetail from '@/components/ArticleDetail'
 
 Vue.use(Router)
 
@@ -23,6 +24,12 @@ export default new Router({
           path: '',
           name: 'ArticleList',
           component: ArticleList
+        },
+        {
+          path: 'article/:id',
+          name: 'ArticleDetail',
+          component: ArticleDetail,
+          props: true
         }
       ]
     }

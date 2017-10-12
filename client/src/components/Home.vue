@@ -8,11 +8,9 @@
 
 <script>
 import Nav from '@/components/Nav'
-import ArticleList from '@/components/ArticleList'
 export default {
   components: {
-    Nav,
-    ArticleList
+    Nav
   }
 }
 </script>

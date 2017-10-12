@@ -1,7 +1,9 @@
 <template lang="html">
   <div>
     <div v-for="(article, idx) in allArticles">
-      <h3>{{ article.title }}</h3>
+      <router-link :to="'/article/' + article._id">
+        <h3>{{ article.title }}</h3>
+      </router-link>
       <p>{{ article.content }}</p>
       <p>category: {{ article.category }}</p>
       <p>author: {{ article.author.username }}</p>
@@ -10,12 +12,8 @@
 </template>
 
 <script>
-import Nav from '@/components/Nav'
 import { mapState, mapActions } from 'vuex'
 export default {
-  components: {
-    Nav
-  },
   computed: {
     ...mapState([
       'allArticles'
