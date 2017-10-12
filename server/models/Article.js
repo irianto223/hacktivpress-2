@@ -12,7 +12,7 @@ var schema = new mongoose.Schema({
   category: String,
   author: {
     type: mongoose.Schema.Types.ObjectId,
-    ref: 'users'
+    ref: 'User'
   }
 }, {
   timestamps: true

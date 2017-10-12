@@ -19,8 +19,52 @@ var createArticle = (req, res) => {
   .catch(err => res.send(err))
 }
 
-var getAllArticles = (req, res) => {
+var getAll = (req, res) => {
   Article.find()
+  .populate('author')
+  .then(dataArticles => {
+    res.send({
+      message: 'data found',
+      data: dataArticles
+    })
+  })
+  .catch(err => res.send(err))
+}
+
+var getOne = (req, res) => {
+  Article.findOne({
+    _id: req.params.id
+  })
+  .populate('author')
+  .then(dataArticle => {
+    res.send({
+      message: 'data found',
+      data: dataArticle
+    })
+  })
+  .catch(err => res.send(err))
+}
+
+var getByAuthor = (req, res) => {
+  let decoded = jwt.verify(req.headers.token, 'satekambing')
+
+  Article.find({
+    author: decoded._id
+  })
+  .populate('author')
+  .then(dataArticles => {
+    res.send({
+      message: 'data found',
+      data: dataArticles
+    })
+  })
+  .catch(err => res.send(err))
+}
+
+var getByCategory = (req, res) => {
+  Article.find({
+    category: req.params.category
+  })
   .populate('author')
   .then(dataArticles => {
     res.send({
@@ -33,5 +77,8 @@ var getAllArticles = (req, res) => {
 
 module.exports = {
   createArticle,
-  getAllArticles
+  getAll,
+  getOne,
+  getByAuthor,
+  getByCategory
 }
