@@ -75,10 +75,23 @@ var getByCategory = (req, res) => {
   .catch(err => res.send(err))
 }
 
+var remove = (req, res) => {
+  Article.remove({
+    _id: req.params.id
+  })
+  .then(() => {
+    res.send({
+      message: 'data removed'
+    })
+  })
+  .catch(err => res.send(err))
+}
+
 module.exports = {
   createArticle,
   getAll,
   getOne,
   getByAuthor,
-  getByCategory
+  getByCategory,
+  remove
 }

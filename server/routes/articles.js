@@ -7,5 +7,6 @@ router.get('/', articleController.getAll)
 router.get('/mine', articleController.getByAuthor)
 router.get('/:category', articleController.getByCategory)
 router.get('/:id', articleController.getOne)
+router.delete('/:id', articleController.remove)
 
 module.exports = router
