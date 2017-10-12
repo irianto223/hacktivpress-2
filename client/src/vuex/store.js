@@ -113,6 +113,7 @@ var actions = {
     .then(response => {
       console.log(response.data)
       context.commit('setdetailArticle', response.data.data)
+      router.push('/')
     })
     .catch(err => console.log(err))
   }
