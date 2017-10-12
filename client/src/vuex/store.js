@@ -96,9 +96,27 @@ var actions = {
     } else {
       context.commit('setLoginStatus', false)
     }
+  },
+  postArticle (context, payload) {
+    http({
+      method: 'post',
+      url: `/articles`,
+      data: {
+        title: payload.title,
+        content: payload.content,
+        category: payload.category
+      },
+      headers: {
+        token: localStorage.getItem('token')
+      }
+    })
+    .then(response => {
+      console.log(response.data)
+      context.commit('setdetailArticle', response.data.data)
+    })
+    .catch(err => console.log(err))
   }
 }
-
 var store = new Vuex.Store({
   state,
   mutations,
