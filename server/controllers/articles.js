@@ -19,6 +19,19 @@ var createArticle = (req, res) => {
   .catch(err => res.send(err))
 }
 
+var getAllArticles = (req, res) => {
+  Article.find()
+  .populate('author')
+  .then(dataArticles => {
+    res.send({
+      message: 'data found',
+      data: dataArticles
+    })
+  })
+  .catch(err => res.send(err))
+}
+
 module.exports = {
-  createArticle
+  createArticle,
+  getAllArticles
 }

@@ -1,6 +1,6 @@
 var mongoose = require('mongoose')
 
-var schema = mongoose.Schema({
+var schema = new mongoose.Schema({
   username: {
     type: String,
     unique: true
