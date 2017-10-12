@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 import axios from 'axios'
+import router from '../vuex/index'
 
 Vue.use(Vuex)
 
@@ -42,6 +43,21 @@ var actions = {
     .then(response => {
       console.log(response.data)
       context.commit('setdetailArticle', response.data.data)
+    })
+    .catch(err => console.log(err))
+  },
+  register (context, payload) {
+    http({
+      method: 'post',
+      url: `/register`,
+      data: {
+        username: payload.username,
+        password: payload.password
+      }
+    })
+    .then(response => {
+      console.log(response.data)
+      router.push('/login')
     })
     .catch(err => console.log(err))
   }
